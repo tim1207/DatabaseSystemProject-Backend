@@ -1,0 +1,17 @@
+version: '3.8'
+services:
+    mysql:
+        image: mysql:8
+        container_name: mysql8
+        volumes:
+          - ./MySQL:/var/lib/mysql
+          - ./SqlScript:/docker-entrypoint-initdb.d
+        environment:
+            MYSQL_ROOT_PASSWORD: DBsystem|Pr0ject
+            MYSQL_DATABASE: project
+        ports:
+          - "3306:3306"
+        restart: always
+        #platform: linux/amd64
+        
+
